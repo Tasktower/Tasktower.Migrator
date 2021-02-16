@@ -1,8 +1,8 @@
 ﻿CREATE TRIGGER [dbo].[updateDatetime]
-ON [dbo].[users]
+ON [dbo].[user_profiles]
 AFTER INSERT, UPDATE 
-AS UPDATE [dbo].[users] SET updated_at = GETDATE()
-	FROM [users] t
+AS UPDATE [dbo].[user_profiles] SET updated_at = GETDATE()
+	FROM [user_profiles] t
 		INNER JOIN inserted i
 			ON t.ID = i.ID
 GO

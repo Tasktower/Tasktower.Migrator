@@ -1,2 +1,2 @@
 ﻿CREATE INDEX users_name
-ON [dbo].[users] ("name");
+ON [dbo].[user_profiles] ("name");
