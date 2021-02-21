@@ -49,7 +49,10 @@ namespace Tasktower.UserService.Migrator
                 upgraderBuilder.WithScriptsFromFileSystem($"./Scripts/Data/{serviceName}");
             }
 
-            var upgrader = upgraderBuilder.LogToConsole().Build();
+            var upgrader = upgraderBuilder
+                .LogToConsole()
+                .LogScriptOutput()
+                .Build();
 
             var result = upgrader.PerformUpgrade();
 
