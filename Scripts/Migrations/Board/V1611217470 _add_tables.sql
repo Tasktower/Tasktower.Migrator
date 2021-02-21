@@ -1,6 +1,7 @@
 ﻿BEGIN TRANSACTION [Tran1611217470]
 
     BEGIN TRY
+        -- creating tables --
 
         CREATE TABLE [dbo].[task_boards]
         (
@@ -10,7 +11,7 @@
             [created_by] NVARCHAR(300) NOT NULL,
             [modified_at] DATETIME2 DEFAULT GETDATE() NOT NULL,
             [modified_by] NVARCHAR(300) NOT NULL,
-            [version] INTEGER NOT NULL DEFAULT 0,
+            [version] BIGINT NOT NULL,
             [title] NVARCHAR(100) NOT NULL,
             [description] NVARCHAR(500) NOT NULL DEFAULT '',
             CONSTRAINT [pk_task_boards_id] 
@@ -23,7 +24,7 @@
             [created_by] NVARCHAR(300) NOT NULL,
             [modified_at] DATETIME2 DEFAULT GETDATE() NOT NULL,
             [modified_by] NVARCHAR(300) NOT NULL,
-            [version] INTEGER NOT NULL DEFAULT 0,
+            [version] BIGINT NOT NULL DEFAULT 0,
             [task_board_id] UNIQUEIDENTIFIER NOT NULL,
             [user_id] NVARCHAR(100) NOT NULL,
             [role] NVARCHAR(20) NOT NULL,
@@ -43,7 +44,7 @@
             [created_by] NVARCHAR(300) NOT NULL,
             [modified_at] DATETIME2 DEFAULT GETDATE() NOT NULL,
             [modified_by] NVARCHAR(300) NOT NULL,
-            [version] INTEGER NOT NULL DEFAULT 0,
+            [version] BIGINT NOT NULL DEFAULT 0,
             [task_board_id] UNIQUEIDENTIFIER NOT NULL,
             [name] NVARCHAR(100) NOT NULL,
             CONSTRAINT [pk_board_column_id] 
@@ -62,7 +63,7 @@
             [created_by] NVARCHAR(300) NOT NULL,
             [modified_at] DATETIME2 DEFAULT GETDATE() NOT NULL,
             [modified_by] NVARCHAR(300) NOT NULL,
-            [version] INTEGER NOT NULL DEFAULT 0,
+            [version] BIGINT NOT NULL DEFAULT 0,
             [name] NVARCHAR(100) NOT NULL,
             [mk_description] NVARCHAR(MAX) NOT NULL DEFAULT '',
             [task_board_id] UNIQUEIDENTIFIER NOT NULL,
